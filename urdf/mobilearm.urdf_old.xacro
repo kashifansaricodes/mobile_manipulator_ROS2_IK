@@ -1,0 +1,664 @@
+<?xml version="1.0" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="mobilearm" xmlns:xacro="http://ros.org/wiki/xacro">
+
+<!-- # Add this before base link -->
+  <link name="dummy_link"></link>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0454480308412735 0.000582838465330818 0.177791113901499"
+        rpy="0 0 0" />
+      <mass
+        value="34.7575387156894" />
+      <inertia
+        ixx="0.627751634772556"
+        ixy="4.08813517851506E-05"
+        ixz="0.119765812637325"
+        iyy="0.784345948664716"
+        iyz="-1.57075538298435E-05"
+        izz="0.966494635772187" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+<!-- # Add this after base link -->
+  <joint name="dummy_joint" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <parent link="dummy_link"/>
+      <child link="base_link"/>
+  </joint>
+
+  <link
+    name="fl_wheel_link">
+    <inertial>
+      <origin
+        xyz="-0.0271807588753444 -4.14165229889463E-16 -1.31838984174237E-16"
+        rpy="0 0 0" />
+      <mass
+        value="2.63203270429412" />
+      <inertia
+        ixx="0.0437698846226494"
+        ixy="-2.80781157450558E-17"
+        ixz="-1.18831814513634E-17"
+        iyy="0.0230243622311288"
+        iyz="-1.1555713157364E-18"
+        izz="0.0230243622311289" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/fl_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/fl_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fl_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.085542 0.17267 0.088796"
+      rpy="1.5708 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="fl_wheel_link" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="fr_wheel_link">
+    <inertial>
+      <origin
+        xyz="-2.42861286636753E-16 3.963843142607E-16 0.0271807588753444"
+        rpy="0 0 0" />
+      <mass
+        value="2.63203270429411" />
+      <inertia
+        ixx="0.0230243622311288"
+        ixy="8.23317679092403E-17"
+        ixz="1.25521031584601E-17"
+        iyy="0.0230243622311288"
+        iyz="-2.66928154962759E-17"
+        izz="0.0437698846226493" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/fr_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/fr_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fr_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.0855424170995859 -0.171498454179958 0.0887956872982283"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="fr_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="caster_steering_link">
+    <inertial>
+      <origin
+        xyz="-0.0155539530214489 -0.050211621486083 -0.0218719177774571"
+        rpy="0 0 0" />
+      <mass
+        value="0.104896059762262" />
+      <inertia
+        ixx="0.000245449516358399"
+        ixy="-5.48661722963356E-05"
+        ixz="-1.15978435736956E-05"
+        iyy="0.000109853368900026"
+        iyz="-7.71526317183975E-05"
+        izz="0.00023738833462133" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/caster_steering_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/caster_steering_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="caster_steering_joint"
+    type="continuous">
+    <origin
+      xyz="-0.204564404538145 0.000586545820041112 0.092302154967211"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="caster_steering_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="caster_wheel_link">
+    <inertial>
+      <origin
+        xyz="2.22044604925031E-16 6.93889390390723E-17 2.46330733588707E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.342625566923817" />
+      <inertia
+        ixx="0.000635022853102609"
+        ixy="-1.22660123963122E-19"
+        ixz="-0.000166314971068249"
+        iyy="0.000401151285704393"
+        iyz="1.37432861193586E-19"
+        izz="0.000519424190397995" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/caster_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/caster_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="caster_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0281460805399568 -0.0920750000000002 -0.039578926236865"
+      rpy="0 0 0" />
+    <parent
+      link="caster_steering_link" />
+    <child
+      link="caster_wheel_link" />
+    <axis
+      xyz="-0.814944954891572 0 0.579538368442309" />
+  </joint>
+  <link
+    name="arm_base_link">
+    <inertial>
+      <origin
+        xyz="-2.57835146586505E-05 0.0132552322064937 5.86643492230324E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.306924619909659" />
+      <inertia
+        ixx="0.00056423275740933"
+        ixy="4.77385932719403E-07"
+        ixz="-2.25328189717659E-06"
+        iyy="0.00062447672477494"
+        iyz="-1.10419626933994E-08"
+        izz="0.000464887899027737" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/arm_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/arm_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_base_joint"
+    type="revolute">
+    <origin
+      xyz="-0.11627 0.00058655 0.31469"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="arm_base_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="10"
+      velocity="100" />
+  </joint>
+  <link
+    name="arm_shoulder_link">
+    <inertial>
+      <origin
+        xyz="-0.106854313845036 -0.0109685060993276 0.0418021223568449"
+        rpy="0 0 0" />
+      <mass
+        value="0.425762912929472" />
+      <inertia
+        ixx="0.000865085703504448"
+        ixy="-0.000758214690915897"
+        ixz="9.06931471576522E-05"
+        iyy="0.00472008557416393"
+        iyz="1.71853825871218E-05"
+        izz="0.0048642302134541" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/arm_shoulder_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/arm_shoulder_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_shoulder_joint"
+    type="revolute">
+    <origin
+      xyz="0.0003775 0.07366 -0.039389"
+      rpy="0 0 0" />
+    <parent
+      link="arm_base_link" />
+    <child
+      link="arm_shoulder_link" />
+    <axis
+      xyz="-0.022661 0 -0.99974" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="10"
+      velocity="100" />
+  </joint>
+  <link
+    name="arm_elbow_link">
+    <inertial>
+      <origin
+        xyz="-0.0233393800217799 -0.0661489560408209 0.0335575281983519"
+        rpy="0 0 0" />
+      <mass
+        value="0.216274856466169" />
+      <inertia
+        ixx="0.00110520290130942"
+        ixy="-0.000383701304411164"
+        ixz="3.63584104531167E-06"
+        iyy="0.00041365723025759"
+        iyz="8.69725645741524E-06"
+        izz="0.00126552451542636" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/arm_elbow_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/arm_elbow_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_elbow_joint"
+    type="revolute">
+    <origin
+      xyz="-0.2973 -0.066203 0.013091"
+      rpy="0 0 0" />
+    <parent
+      link="arm_shoulder_link" />
+    <child
+      link="arm_elbow_link" />
+    <axis
+      xyz="-0.022661 0 -0.99974" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="10"
+      velocity="100" />
+  </joint>
+  <link
+    name="arm_wrist_link">
+    <inertial>
+      <origin
+        xyz="-0.114340241556196 0.0502692868264429 0.0305389440883377"
+        rpy="0 0 0" />
+      <mass
+        value="0.670549259795526" />
+      <inertia
+        ixx="0.00428366558965856"
+        ixy="0.00216312207223584"
+        ixz="7.15488129621559E-05"
+        iyy="0.0083495598791866"
+        iyz="-4.90317863900001E-05"
+        izz="0.00743855920842014" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/arm_wrist_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobilearm/meshes/arm_wrist_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_wrist_joint"
+    type="revolute">
+    <origin
+      xyz="-0.087089 -0.18355 0.0070554"
+      rpy="0 0 0" />
+    <parent
+      link="arm_elbow_link" />
+    <child
+      link="arm_wrist_link" />
+    <axis
+      xyz="-0.022661 0 -0.99974" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="10"
+      velocity="100" />
+  </joint>
+
+  <ros2_control name="GazeboSystem" type="system">
+    <hardware>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+
+  <!-- # Velocity Controllers -->
+  <joint name="fl_wheel_joint">
+      <command_interface name="velocity">
+          <param name="min">-5.0</param>
+          <param name="max">5.0</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="fr_wheel_joint">
+      <command_interface name="velocity">
+          <param name="min">-5.0</param>
+          <param name="max">5.0</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+ <joint name="arm_base_joint">
+      <command_interface name="velocity">
+          <param name="min">-5.0</param>
+          <param name="max">5.0</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="arm_shoulder_joint">
+      <command_interface name="velocity">
+          <param name="min">-5.0</param>
+          <param name="max">5.0</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+ <joint name="arm_elbow_joint">
+      <command_interface name="velocity">
+          <param name="min">-5.0</param>
+          <param name="max">5.0</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="arm_wrist_joint">
+      <command_interface name="velocity">
+          <param name="min">-5.0</param>
+          <param name="max">5.0</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+ <joint name="caster_steering_joint">
+      <command_interface name="velocity">
+          <param name="min">-5.0</param>
+          <param name="max">5.0</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="caster_wheel_joint">
+      <command_interface name="velocity">
+          <param name="min">-5.0</param>
+          <param name="max">5.0</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <!-- # Position Controller -->
+  <joint name="arm_base_joint">
+      <command_interface name="position">
+          <param name="min">-3.14</param>
+          <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="arm_shoulder_joint">
+      <command_interface name="position">
+          <param name="min">-3.14</param>
+          <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="arm_elbow_joint">
+      <command_interface name="position">
+          <param name="min">-3.14</param>
+          <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="arm_wrist_joint">
+      <command_interface name="position">
+          <param name="min">-3.14</param>
+          <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  </ros2_control>
+
+<gazebo>
+  <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+    <parameters>$(find mobilearm)/config/control.yaml</parameters>
+  </plugin>
+</gazebo>
+
+<gazebo reference="base_link">
+  <sensor name="lidar" type="ray">
+    <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+    <always_on>true</always_on>
+    <visualize>true</visualize>
+    <update_rate>5</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>360</samples>
+          <resolution>1.00000</resolution>
+          <min_angle>0.000000</min_angle>
+          <max_angle>6.280000</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.120000</min>
+        <max>3.5</max>
+        <resolution>0.015000</resolution>
+      </range>
+      <noise>
+        <type>gaussian</type>
+        <mean>0.0</mean>
+        <stddev>0.01</stddev>
+      </noise>
+    </ray>
+    <plugin name="scan" filename="libgazebo_ros_ray_sensor.so">
+      <ros>
+        <remapping>~/out:=scan</remapping>
+      </ros>
+      <output_type>sensor_msgs/LaserScan</output_type>
+      <frame_name>lidar_link</frame_name>
+    </plugin>
+  </sensor>
+  </gazebo>
+
+
+</robot>
